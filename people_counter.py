@@ -9,7 +9,18 @@
 #	--model mobilenet_ssd/MobileNetSSD_deploy.caffemodel \
 #	--output output/webcam_output.avi
 
+# Sample terminal command for running a counter
+# Sample 1
+# Pulls video from videos/
+# Save video to output/
 # python people_counter.py --prototxt mobilenet_ssd/MobileNetSSD_deploy.prototxt --model mobilenet_ssd/MobileNetSSD_deploy.caffemodel --input videos/videoplayback.mp4 --output output/output_03.avi
+
+# Sample 2
+# if --input is not set, this will pull video from stream
+# Save video to output/
+# python people_counter.py --prototxt mobilenet_ssd/MobileNetSSD_deploy.prototxt --model mobilenet_ssd/MobileNetSSD_deploy.caffemodel --output output/output_03.avi
+
+
 
 # import the necessary packages
 from pyimagesearch.centroidtracker import CentroidTracker
@@ -46,7 +57,6 @@ CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
 	"dog", "horse", "motorbike", "person", "pottedplant", "sheep",
 	"sofa", "train", "tvmonitor"]
 
-# test commit
 # load our serialized model from disk
 print("[INFO] loading model...")
 net = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
